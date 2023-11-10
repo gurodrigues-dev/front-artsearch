@@ -1,0 +1,43 @@
+.navbar {
+  width: 100vw;
+  padding: 1rem 8rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid var(--dark-gray);
+  background: var(--very-dark-gray);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.wrapper_logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.wrapper_logo img {
+  width: 6rem;
+  height: auto;
+}
+
+.wrapper_logo p {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.nav_tools {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav_tools .search_bar {
+  width: 30rem;
+  height: 4rem;
+}

@@ -1,0 +1,28 @@
+.random_artist {
+  height: 4rem;
+  width: 4rem;
+  padding: 0.5rem;
+  background: transparent;
+  border-radius: 1rem;
+  border: 1px solid var(--pink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+}
+
+.random_artist:hover {
+  background: linear-gradient(45deg, var(--pink), var(--purple));
+  border: none;
+}
+
+.icon_random {
+  transform: rotate(-90deg);
+  font-weight: bold;
+  color: var(--pink);
+}
+
+.random_artist:hover .icon_random {
+  color: var(--white);
+}

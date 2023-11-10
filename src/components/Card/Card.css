@@ -1,0 +1,31 @@
+.card {
+  width: 80%;
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  background-color: transparent;
+  
+  border-radius: 5px;
+  border: none;
+
+  transition: .3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  background: var(--dark-gray-opacity);
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.card p {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
