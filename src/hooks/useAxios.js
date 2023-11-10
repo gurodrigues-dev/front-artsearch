@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const createAxiosInstance = () => {
   const instance = axios.create({
-    baseURL: "http://127.0.0.1",
+    baseURL: "https://api.gurodriguesdev.xyz/",
     headers: {
       "Content-Type": "multipart/form-data"
     }
