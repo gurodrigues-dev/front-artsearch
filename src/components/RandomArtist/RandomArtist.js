@@ -13,18 +13,17 @@ import { LoadingContext } from "../../context/LoadingContext";
 const RandomArtist = ({ home }) => {
   const navigate = useNavigate();
   const axios = useAxios();
-  const { setLoading } = useContext(LoadingContext)
+  const { setLoading } = useContext(LoadingContext);
 
   const handleClick = async () => {
     try {
       if(home) {
-        navigate("/artistInfo")
+        navigate("/artistInfo");
       }
 
       setLoading(true);
       const response = await axios.get("/randomartist");
       navigate(`/artistInfo/${response}`);
-
     } catch (error) {
       console.error("Erro na solicitação GET:", error);
     };
@@ -37,4 +36,4 @@ const RandomArtist = ({ home }) => {
   )
 }
 
-export default RandomArtist
+export default RandomArtist;

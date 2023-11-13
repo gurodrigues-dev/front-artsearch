@@ -1,11 +1,11 @@
 import "./LoadingAnimation.css";
 
-const LoadingAnimation = () => {
+const LoadingAnimation = ({ color = null }) => {
   return (
-    <div className="loading">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div className={color ? "loading loading_modal" : "loading"} >
+      <span style={color ? {background: color } : {}}></span>
+      <span style={color ? {background: color } : {}}></span>
+      <span style={color ? {background: color } : {}}></span>
     </div>
   )
 }

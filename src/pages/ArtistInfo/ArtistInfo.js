@@ -9,6 +9,7 @@ import { useAxios } from "../../hooks/useAxios";
 import Navbar from "../../components/Navbar/Navbar"
 import Card from "../../components/Card/Card"
 import LoadingAnimation from "../../components/LoadingAnimation/LoadingAnimation";
+import Modal from "../../components/Modal/Modal";
 
 // Context
 import { LoadingContext } from "../../context/LoadingContext";
@@ -31,27 +32,29 @@ const ArtistInfo = () => {
 
   useEffect(() => {
     async function fetchData() {
-      try{
+      try {
         const response = await axios.post("/checkmusic", formData);
-        
+
         setArtistInfos(response);
         setLoading(false);
-      } catch(error) {
+      } catch (error) {
         console.log("Erro na solicitação POST:", error);
       };
     };
 
-    if(nameParams) {
+    if (nameParams) {
       fetchData();
     }
-  }, [formData] );
+  }, [formData]);
 
   return (
     <div className="artist_container">
+      <Modal />
       <Navbar />
       {loading ? (
         <LoadingAnimation />
       ) : (
+
         <div className="wrapper_infos">
           <div className="infos">
             <div className="header_infos">
@@ -75,7 +78,7 @@ const ArtistInfo = () => {
               <div className="last_albuns">
                 <h2>Ultimos albuns</h2>
                 {artistInfos ? artistInfos.lastAlbuns.map((album) => (
-                  <Card key={album.name} name={album.name} image={album.image} />
+                  <Card key={album.name} name={album.name} image={album.image} albumId={album.id}/>
                 )) : null}
               </div>
             </div>
@@ -85,8 +88,7 @@ const ArtistInfo = () => {
             <div className="color_overlay"></div>
           </div>
         </div>
-      )
-      }
+      )}
     </div>
   );
 };
