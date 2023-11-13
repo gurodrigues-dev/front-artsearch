@@ -113,7 +113,6 @@
   height: 100%;
 
   background: radial-gradient(circle at center right, transparent 30%,var(--very-dark-gray) 85%);
-  /* background: linear-gradient(to left, transparent 30%, var(--very-dark-gray) 99%); */
 
   position: absolute;
 }
