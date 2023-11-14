@@ -34,7 +34,7 @@ const Modal = () => {
     async function fetchTracks() {
       try {
         const formData = new FormData();
-        formData.append("albumId", modalInfo.idAlbum);
+        formData.append("album_id", modalInfo.idAlbum);
 
         const response = await axios.post("/albumTracks", formData);
 
