@@ -5,10 +5,11 @@
   --very-dark-gray: rgb(28, 28, 28);
   --dark-gray: rgb(59, 58, 58);
   --dark-gray-opacity: rgba(59, 58, 58, .5);
-  --gray: rgb(138, 138, 138);
+  --gray: rgb(140, 140, 140);
 
   --white: rgb(255, 255, 255);
   --black: rgb(0, 0, 0);
+  --black-opacity: rgba(0, 0, 0, 0.8);
 
   --nav-height: 7.6rem;
 }
@@ -56,6 +57,10 @@ a {
   border-radius: 1rem;
 
   transition: 0.5s;
+}
+
+.hide {
+  display: none;
 }
 
 .search_bar:hover {

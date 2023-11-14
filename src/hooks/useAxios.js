@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const createAxiosInstance = () => {
   const instance = axios.create({
-    baseURL: "https://api.gurodriguesdev.xyz/",
+    baseURL: process.env.REACT_APP_LINK_API,
     headers: {
       "Content-Type": "multipart/form-data"
     }
@@ -11,6 +11,22 @@ const createAxiosInstance = () => {
 
   return instance;
 };
+
+const formatNumbers = (number, type) => {
+
+  let formatedNumber = 0;
+
+  if(type === "follows") {
+    formatedNumber = number.toLocaleString("pt-BR");
+  } else {
+    const minuts= Math.floor(number / 60000); 
+    const seconds = ((number % 60000) / 1000).toFixed(0);
+
+    formatedNumber = `${minuts}:${seconds.padStart(2, '0')}`;
+  }
+
+  return formatedNumber;
+} 
 
 export const useAxios = () => {
   const [axiosInstance] = useState(createAxiosInstance);
@@ -20,56 +36,27 @@ export const useAxios = () => {
     try {
       const response = await axiosInstance.get(url);
 
-      return response.data.name_artist;
+      return response.data.name;
 
     } catch (error) {
       throw error
     }
   }
 
-  // checkmusic
+  // checkmusic e albumTracks
   const post = async (url, formData) => {
     try {
       const response = await axiosInstance.post(url, formData);
 
-      const data = {
-        name: response.data.name_artist,
-        follows: parseInt(response.data.follows).toLocaleString("pt-BR"),
-        imageArtist: response.data.image_artist,
-        lastAlbuns: [
-          {
-            name: response.data.name_last_album1,
-            image: response.data.image_last_album1,
-            id: response.data.id_last_album1
-          },
-          {
-            name: response.data.name_last_album2,
-            image: response.data.image_last_album2,
-            id: response.data.id_last_album2
-          },
-          {
-            name: response.data.name_last_album3,
-            image: response.data.image_last_album3,
-            id: response.data.id_last_album3
-          }
-        ],
-        topTracks: [
-          {
-            name: response.data.name_top_track1,
-            image: response.data.image_top_track1
-          },
-          {
-            name: response.data.name_top_track2,
-            image: response.data.image_top_track2
-          },
-          {
-            name: response.data.name_top_track3,
-            image: response.data.image_top_track3
-          }
-        ]
-      };
+      if(url === "/checkmusic") {
+        response.data.follows = formatNumbers(parseInt(response.data.follows), "follows")
+      } else {
+        response.data.tracks.forEach(track => {
+          track.duration = formatNumbers(parseInt(track.duration, "duration"))
+        })
+      }
 
-      return data;
+      return response.data;
 
     } catch (error) {
       throw error
