@@ -16,8 +16,8 @@
     "web-vitals": "^3.5.0"
   },
   "scripts": {
-    "dev": "env-cmd -f ./.env react-scripts start",
-    "build": "env-cmd -f ./.env CI=false react-scripts build"
+    "dev": "env-cmd -f .env react-scripts start",
+    "build": "env-cmd -f .env CI=false react-scripts build"
   },
   "eslintConfig": {
     "extends": [
