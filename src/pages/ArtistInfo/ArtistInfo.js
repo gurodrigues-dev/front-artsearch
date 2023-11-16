@@ -37,6 +37,7 @@ const ArtistInfo = () => {
 
         setArtistInfos(response);
         setLoading(false);
+        console.log(loading)
       } catch (error) {
         console.log("Erro na solicitação POST:", error);
       };
@@ -48,35 +49,35 @@ const ArtistInfo = () => {
   }, [formData]);
 
   return (
-    <div className="artist_container">
+    <div className="artist">
       <Modal />
       <Navbar />
       {loading ? (
         <LoadingAnimation />
       ) : (
 
-        <div className="wrapper_infos">
+        <div className="artist_inner">
           <div className="infos">
-            <div className="header_infos">
-              <img src={artistInfos.imageArtist} alt={`Imagem ${artistInfos.name}`} />
-              <div className="title_infos">
-                <h1>{artistInfos.name}</h1>
-                <div className="line"></div>
-                <span>
+            <div className="infos_header">
+              <img className="infos_header_image" src={artistInfos.imageArtist} alt={`Imagem ${artistInfos.name}`} />
+              <div className="infos_header">
+                <h1 className="infos_header_title">{artistInfos.name}</h1>
+                <div className="infos_header_line"></div>
+                <span className="infos_header_follows">
                   {artistInfos.follows}
                   <p>Seguidores</p>
                 </span>
               </div>
             </div>
-            <div className="songs_infos">
-              <div className="top_tracks">
-                <h2>Populares</h2>
+            <div className="musics">
+              <div className="musics_infos">
+                <h2 className="musics_infos_title">Populares</h2>
                 {artistInfos ? artistInfos.topTracks.map((track) => (
                   <Card key={track.name} name={track.name} image={track.image} />
                 )) : null}
               </div>
-              <div className="last_albuns">
-                <h2>Ultimos albuns</h2>
+              <div className="musics_infos">
+                <h2 className="musics_infos_title">Ultimos albuns</h2>
                 {artistInfos ? artistInfos.lastAlbuns.map((album) => (
                   <Card key={album.name} name={album.name} image={album.image} albumId={album.id}/>
                 )) : null}

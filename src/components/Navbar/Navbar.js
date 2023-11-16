@@ -17,12 +17,12 @@ import SearchBar from "../SearchBar/SearchBar";
 function Navbar() {
   return (
     <nav className="navbar">
-      <Link className="wrapper_logo" to="/">
-        <img src={logo} alt="Logo ArtSearch" />
-        <p>ArtSearch</p>
+      <Link className="navbar_wrapper_logo" to="/">
+        <img className="navbar_logo_image" src={logo} alt="Logo ArtSearch" />
+        <p className="navbar_logo_text">ArtSearch</p>
       </Link>
-      <div className="nav_tools">
-        <div className="search_bar">
+      <div className="navbar_tools">
+        <div className="wrapper_search_bar navbar_search_bar">
           <SearchBar />
           <BsSearch className="icon icon_search" />
         </div>

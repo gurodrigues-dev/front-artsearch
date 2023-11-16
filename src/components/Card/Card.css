@@ -20,12 +20,13 @@
   transform: scale(1.05);
 }
 
-.card img {
-  width: 5rem;
-  height: 5rem;
+.card_image {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 5px;
 }
 
-.card p {
+.card_title {
   font-size: 1.8rem;
   font-weight: bold;
 }

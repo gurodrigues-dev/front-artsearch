@@ -9,11 +9,11 @@ import RandomArtist from "../../components/RandomArtist/RandomArtist"
 
 const Home = () => {
   return (
-    <div className="home_container">
-      <img src={logo} alt="Logo ArtSearch" />
-      <div className="wrapper_search">
-        <div className="search_bar">
-          <BsSearch className="icon" />
+    <div className="home">
+      <img className="home__logo" src={logo} alt="Logo ArtSearch" />
+      <div className="home_search_bar">
+        <div className="wrapper_search_bar">
+          <BsSearch className="icon icon_search" />
           <SearchBar />
         </div>
         <RandomArtist home={true}/>
