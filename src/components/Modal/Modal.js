@@ -59,7 +59,7 @@ const Modal = () => {
 
 
   return (
-    <div id="modal" className="hide" >
+    <div id="modal" className="wrapper_modal hide" >
       <div className="fade">
         {modalInfo && (
           <Palette src={modalInfo.imageAlbum} crossOrigin="anonymous" format="rgbString" colorCount={4}>
@@ -68,36 +68,36 @@ const Modal = () => {
 
               return (
                 <div className="modal">
-                  <MdClose className="close" onClick={handleClick} />
-                  <div className="header" style={colors.gradient(data, "header")}>
-                    <img className="image_album" src={modalInfo.imageAlbum} alt={`Capa do album ${modalInfo.nameAlbum}`} />
-                    <span>{modalInfo.nameAlbum}</span>
+                  <MdClose className="modal_btn_close icon" onClick={handleClick} />
+                  <div className="modal_header" style={colors.gradient(data, "header")}>
+                    <img className="modal_header_image" src={modalInfo.imageAlbum} alt={`Capa do album ${modalInfo.nameAlbum}`} />
+                    <span className="modal_header_title">{modalInfo.nameAlbum}</span>
                   </div>
-                  <div className="tracks_infos" style={colors.gradient(data)}>
-                    <div className="title_column">
-                          <div className="wrapper_title_number">
-                            <span>#</span>
+                  <div className="modal_tracks" style={colors.gradient(data)}>
+                    <div className="column_title">
+                          <div className="column_title_wrapper_number">
+                            <span className="column_title_number">#</span>
                           </div>
-                          <span>Título</span>
-                          <div className="wrapper_icon">
-                            <BiTimeFive className="icon" />
+                          <span className="column_title_name">Título</span>
+                          <div className="column_title_wrapper_icon">
+                            <BiTimeFive className="icon column_title_icon" />
                           </div>
                     </div> 
                     {
                       loadingModal ? (
                         <LoadingAnimation color={colors.selectColor(data)} />
                       ) : (
-                        <div className="track_list">
+                        <div className="tracks_list">
                           {
                             tracksInfo && tracksInfo.tracks.map((track) => (
                               <div key={`${track.trackNumber}-${track.name}`} className="track">
-                                <div className="number">
+                                <div className="track_number">
                                   <span>{track.trackNumber}</span>
                                 </div>
-                                <div className="name_track">
+                                <div className="track_name">
                                   <p>{track.name}</p>
                                 </div>
-                                <div className="duration">
+                                <div className="track_duration">
                                   <span>{track.duration}</span>
                                 </div>
                               </div>

@@ -1,5 +1,6 @@
-#modal {
+.wrapper_modal {
   position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
   z-index: 500;
@@ -25,41 +26,43 @@
   overflow: hidden;
 }
 
-.modal .close {
+.modal_btn_close {
   position: absolute;
   top: 15px;
   right: 15px;
   color: var(--White);
-  font-size: 2rem;
-  font-weight: 700;
   cursor: pointer;
+  transition: .2s;
 }
 
-.modal .header {
+.modal_btn_close:hover {
+  transform: scale(1.1);
+}
+
+.modal_header {
   width: 100%;
   height: 30%;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   gap: 2rem;
   padding-inline: 3rem;
   border-radius: 20px 20px 0 0;
 }
 
-.modal .header .image_album {
+.modal_header_image {
   width: 10rem;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 60px rgba(0,0,0,.5);
 }
 
-.modal .header > span {
+.modal_header_title {
   font-size: 2rem;
   font-weight: 700;
-
 }
 
-.modal .tracks_infos {
+.modal_tracks {
   width: 100%;
   height: 70%;
   position: relative;
@@ -72,30 +75,27 @@
   font-weight: 700;
 }
 
-.tracks_infos span {
-  color: var(--gray);
-}
-
-.tracks_infos .title_column {
+.column_title {
   border-bottom: 1px solid var(--gray);
   padding: 1rem;
 }
 
-.title_column .wrapper_title_number {
+.column_title_number,
+.column_title_name,
+.column_title_icon {
+  color: var(--gray);
+}
+
+.column_title_wrapper_number {
   text-align: right;
 }
 
-.title_column .wrapper_icon {
+.column_title_wrapper_icon {
   text-align: left;
 }
 
-.title_column .icon {
-  color: var(--gray);
-  font-size: 2rem;
-}
-
-.tracks_infos .title_column, 
-.tracks_infos .track_list .track {
+.column_title, 
+.track {
   width: 100%;
   display: grid;
   grid-template-columns: 3rem 1fr 5rem;
@@ -103,41 +103,44 @@
   grid-column-gap: 2rem;
 }
 
-.tracks_infos .title_column span:nth-child(1),
-.tracks_infos .track_list .track .number {
+.column_title_number,
+.track_number {
   grid-column: 1 / 2;
 }
 
-.tracks_infos .title_column span:nth-child(2),
-.tracks_infos .track_list .name_track {
+.column_title_name,
+.track_name {
   grid-column: 2 / 3;
 }
 
-.tracks_infos .title_column .wrapper_icon,
-.tracks_infos .track_list .track .duration {
+.column_title_wrapper_icon,
+.track_duration {
   grid-column: 3 / 4;
 }
 
-.tracks_infos .track_list {
+.tracks_list {
   width: 100%;
   height: 100%;
   overflow-y: auto;
 }
 
-.track_list .track {
+.track {
   cursor: pointer;
   transition: .4s;
   border-radius: 15px;
   padding: 2rem 1rem;
 }
 
-.track_list .track:hover {
+.track:hover {
   background-color: var(--dark-gray-opacity);
 }
 
-.track_list .track .number {
+.track_number {
   text-align: right;
 }
 
+::-webkit-scrollbar-thumb {
+  border-radius: 16px;
+}
 
 

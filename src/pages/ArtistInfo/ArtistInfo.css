@@ -1,90 +1,71 @@
-.artist_container {
+.artist {
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 100vh;
 }
 
-.wrapper_infos {
+.artist_inner { 
   width: 100%;
-  height: 100%;
-  display: flex;
-  position: relative;
   margin-top: var(--nav-height);
 }
 
 .infos {
-  width: 100%;
-  height: 100%;
-  padding: 5rem 8rem;
-
   display: flex;
   flex-direction: column;
-  gap: 5rem;
-
-  z-index: 10;
+  gap: 3rem;
+  padding: 3rem 8rem;
 }
 
-.header_infos img {
-  width: 20rem;
-  height: 20rem;
-  margin-bottom: 1rem;
-
-  border-radius: 50%;
-  border: 2px solid var(--dark-gray);
-  
-  object-fit: cover;
-}
-
-.title_infos {
+.infos_header {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.title_infos h1 {
+.infos_header_image {
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+  border: 2px solid var(--dark-gray);
+}
+.infos_header_title {
   font-size: 4rem;
 }
 
-.line {
-  width: 50rem;
+.infos_header_line {
+  width: 40%;
   height: 3px;
-
-  border-radius: 15px;
+  border-radius: 2rem;
   background: var(--dark-gray);
 }
 
-.title_infos span {
-  font-size: 1.5rem;
-  font-weight: bold;
-
+.infos_header_follows {
   display: flex;
   gap: .5rem;
-}
-
-.title_infos span p {
-  color: var(--gray);
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
-.songs_infos {
-  display: flex;
+.infos_header_follows > p {
+  color: var(--gray);
 }
 
-.songs_infos h2 {
+.musics {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.musics_infos {
+  width: 50%;
+  height: 100%;
+}
+
+.musics_infos_title {
   font-size: 2.5rem;
   font-weight: bold;
+  margin-bottom: 2rem;
 }
 
-.top_tracks,
-.last_albuns {
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
 
 .image_container {
   width: 40%;
@@ -95,7 +76,7 @@
   justify-content: flex-end;
   align-items: center;
 
-  z-index: 1;
+  z-index: -1;
   top: 0;
   right: 0;
 }
@@ -112,7 +93,7 @@
   width: 100%;
   height: 100%;
 
-  background: radial-gradient(circle at center right, transparent 30%,var(--very-dark-gray) 85%);
+  background: radial-gradient(circle at center right, transparent 30%,var(--very-dark-gray) 80%);
 
   position: absolute;
 }

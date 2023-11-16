@@ -15,29 +15,29 @@
   z-index: 100;
 }
 
-.wrapper_logo {
+.navbar_wrapper_logo {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.wrapper_logo img {
+.navbar_logo_image {
   width: 6rem;
   height: auto;
 }
 
-.wrapper_logo p {
+.navbar_logo_text {
   font-size: 2.5rem;
   font-weight: 800;
 }
 
-.nav_tools {
+.navbar_tools {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.nav_tools .search_bar {
+.navbar_search_bar {
   width: 30rem;
   height: 4rem;
 }

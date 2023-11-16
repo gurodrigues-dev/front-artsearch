@@ -1,9 +1,9 @@
-.search {
+.search_wrapper {
   width: 100%;
   height: 100%;
 }
 
-.search input {
+.search {
   width: 100%;
   height: 100%;
   padding: 1rem;

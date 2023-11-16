@@ -22,12 +22,13 @@ const Card = ({image, name, albumId = null}) => {
 
     const modal = document.querySelector("#modal");
     modal.classList.remove("hide");
+
   }
 
   return (
     <div className="card" onClick={albumId ? showModal : () => {}}>
-      <img src={image} alt={`Foto de capa da música ${name}`} />
-      <p>{name}</p>
+      <img className="card_image" src={image} alt={`Foto de capa da música ${name}`} />
+      <p className="card_title">{name}</p>
     </div>
   );
 };

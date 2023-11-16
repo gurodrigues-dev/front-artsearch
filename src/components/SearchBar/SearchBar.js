@@ -21,8 +21,9 @@ const SearchBar = () => {
   }
 
   return (
-    <form className="search" onSubmit={(e) => handleSubmit(e)}>
+    <form className="search_wrapper" onSubmit={(e) => handleSubmit(e)}>
       <input
+        className="search"
         type="text"
         placeholder="Digite o nome de um artista"
         onChange={(e) => setArtistName(e.target.value)}
