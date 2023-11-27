@@ -1,4 +1,4 @@
-.random_artist {
+.random-artist {
   height: 4rem;
   width: 4rem;
   padding: 0.5rem;
@@ -12,17 +12,17 @@
   transition: .2s ease-in-out;
 }
 
-.random_artist:hover {
+.random-artist:hover {
   background: linear-gradient(45deg, var(--pink), var(--purple));
   border: none;
 }
 
-.icon_random {
+.icon-random {
   transform: rotate(-90deg);
   font-weight: bold;
   color: var(--pink);
 }
 
-.random_artist:hover .icon_random {
+.random-artist:hover .icon-random {
   color: var(--white);
 }

@@ -30,8 +30,8 @@ const RandomArtist = ({ home }) => {
   };
 
   return (
-    <button className="random_artist" onClick={handleClick} >
-      <BsShuffle className="icon icon_random" />
+    <button className="random-artist" onClick={handleClick} >
+      <BsShuffle className="icon icon-random" />
     </button>
   )
 }

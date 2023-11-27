@@ -27,8 +27,8 @@ const Card = ({image, name, albumId = null}) => {
 
   return (
     <div className="card" onClick={albumId ? showModal : () => {}}>
-      <img className="card_image" src={image} alt={`Foto de capa da música ${name}`} />
-      <p className="card_title">{name}</p>
+      <img className="card__image" src={image} alt={`Foto de capa da música ${name}`} />
+      <p className="card__title">{name}</p>
     </div>
   );
 };

@@ -17,7 +17,6 @@ import { LoadingContext } from "../../context/LoadingContext";
 const ArtistInfo = () => {
   const axios = useAxios();
   const { loading, setLoading } = useContext(LoadingContext);
-
   const { nameParams } = useParams();
 
   const [artistInfos, setArtistInfos] = useState({});
@@ -37,7 +36,6 @@ const ArtistInfo = () => {
 
         setArtistInfos(response);
         setLoading(false);
-        console.log(loading)
       } catch (error) {
         console.log("Erro na solicitação POST:", error);
       };
@@ -56,38 +54,40 @@ const ArtistInfo = () => {
         <LoadingAnimation />
       ) : (
 
-        <div className="artist_inner">
+        <div className="artist-inner">
           <div className="infos">
-            <div className="infos_header">
-              <img className="infos_header_image" src={artistInfos.imageArtist} alt={`Imagem ${artistInfos.name}`} />
-              <div className="infos_header">
-                <h1 className="infos_header_title">{artistInfos.name}</h1>
-                <div className="infos_header_line"></div>
-                <span className="infos_header_follows">
+            <div className="header-infos">
+              <img className="header-infos__image" src={artistInfos.imageArtist} alt={`Imagem ${artistInfos.name}`} />
+              <div className="header-infos-inner">
+                <h1 className="header-infos__title">{artistInfos.name}</h1>
+                <div className="header-infos__line"></div>
+                <span className="header-infos__follows">
                   {artistInfos.follows}
                   <p>Seguidores</p>
                 </span>
               </div>
             </div>
             <div className="musics">
-              <div className="musics_infos">
-                <h2 className="musics_infos_title">Populares</h2>
-                {artistInfos ? artistInfos.topTracks.map((track) => (
+              <div className="musics-infos">
+                <h2 className="musics-infos__title">Populares</h2>
+                {artistInfos.topTracks && artistInfos.topTracks.map((track) => (
                   <Card key={track.name} name={track.name} image={track.image} />
-                )) : null}
+                ))}
               </div>
-              <div className="musics_infos">
-                <h2 className="musics_infos_title">Ultimos albuns</h2>
-                {artistInfos ? artistInfos.lastAlbuns.map((album) => (
+              <div className="musics-infos">
+                <h2 className="musics-infos__title">Ultimos albuns</h2>
+                {artistInfos.lastAlbuns && artistInfos.lastAlbuns.map((album) => (
                   <Card key={album.name} name={album.name} image={album.image} albumId={album.id}/>
-                )) : null}
+                ))}
               </div>
             </div>
           </div>
-          <div className="image_container">
+          {artistInfos.lastAlbuns && (
+            <div className="image-container">
             <img src={artistInfos.lastAlbuns[0].image} alt={`Imagem do album ${artistInfos.lastAlbuns[0].name}`} />
-            <div className="color_overlay"></div>
+            <div className="color-overlay"></div>
           </div>
+          )}
         </div>
       )}
     </div>

@@ -20,13 +20,23 @@
   transform: scale(1.05);
 }
 
-.card_image {
+.card__image {
   width: 6rem;
   height: 6rem;
   border-radius: 5px;
 }
 
-.card_title {
+.card__title {
   font-size: 1.8rem;
   font-weight: bold;
+  width: 100%;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (max-width: 1150px) {
+  .card {
+    width: 100%;
+  }
 }
