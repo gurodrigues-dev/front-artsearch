@@ -12,7 +12,7 @@ export const useManipulationColors = () => {
       const luminosity = 0.299 * valueRgb[0] + 0.587 * valueRgb[1] + 0.114 * valueRgb[2];
 
       if (luminosity > limitDark && luminosity < limitLight) {
-        return colors[i]
+        return colors[i];
       }
     }
   }
@@ -33,5 +33,5 @@ export const useManipulationColors = () => {
     }
   };
 
-  return { addOpacity, selectColor, gradient }
+  return { addOpacity, selectColor, gradient };
 }
