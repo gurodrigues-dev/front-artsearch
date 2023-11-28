@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const createAxiosInstance = () => {
   const instance = axios.create({
-    baseURL: process.env.REACT_APP_LINK_API,
+    baseURL: process.env.REACT_APP_LINK_API + "/api/v1",
     headers: {
       "Content-Type": "multipart/form-data"
     }
@@ -39,7 +39,7 @@ export const useAxios = () => {
       return response.data.name;
 
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 
@@ -49,17 +49,17 @@ export const useAxios = () => {
       const response = await axiosInstance.post(url, formData);
 
       if(url === "/checkmusic") {
-        response.data.follows = formatNumbers(parseInt(response.data.follows), "follows")
+        response.data.follows = formatNumbers(parseInt(response.data.follows), "follows");
       } else {
         response.data.tracks.forEach(track => {
           track.duration = formatNumbers(parseInt(track.duration, "duration"))
-        })
+        });
       }
 
       return response.data;
 
     } catch (error) {
-      throw error
+      throw error;
     }
   }
 

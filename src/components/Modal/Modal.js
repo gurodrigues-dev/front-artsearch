@@ -5,8 +5,7 @@ import { BiTimeFive } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 
 // Hooks
-import { useEffect, useState } from "react";
-import { useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Palette } from "color-thief-react";
 
 // Components
@@ -28,7 +27,7 @@ const Modal = () => {
   const { modalInfo } = useContext(ModalContext);
   const { loadingModal, setLoadingModal } = useContext(LoadingContext);
 
-  const [tracksInfo, setTracksInfos] = useState(null)
+  const [tracksInfo, setTracksInfos] = useState(null);
 
   useEffect(() => {
     async function fetchTracks() {
@@ -39,7 +38,7 @@ const Modal = () => {
         const response = await axios.post("/albumTracks", formData);
 
         setTracksInfos(response);
-        setLoadingModal(false)
+        setLoadingModal(false);
 
       } catch (error) {
         console.log(error);
@@ -48,6 +47,7 @@ const Modal = () => {
 
     if (modalInfo) {
       fetchTracks();
+
     }
 
   }, [modalInfo]);
@@ -57,9 +57,8 @@ const Modal = () => {
     modal.classList.add("hide");
   }
 
-
   return (
-    <div id="modal" className="wrapper_modal hide" >
+    <div id="modal" className="wrapper-modal hide" >
       <div className="fade">
         {modalInfo && (
           <Palette src={modalInfo.imageAlbum} crossOrigin="anonymous" format="rgbString" colorCount={4}>
@@ -68,36 +67,36 @@ const Modal = () => {
 
               return (
                 <div className="modal">
-                  <MdClose className="modal_btn_close icon" onClick={handleClick} />
-                  <div className="modal_header" style={colors.gradient(data, "header")}>
-                    <img className="modal_header_image" src={modalInfo.imageAlbum} alt={`Capa do album ${modalInfo.nameAlbum}`} />
-                    <span className="modal_header_title">{modalInfo.nameAlbum}</span>
+                  <MdClose className="modal__btn-close icon" onClick={handleClick} />
+                  <div className="header-modal" style={colors.gradient(data, "header")}>
+                    <img className="header-modal__image" src={modalInfo.imageAlbum} alt={`Capa do album ${modalInfo.nameAlbum}`} />
+                    <span className="header-modal__title">{modalInfo.nameAlbum}</span> 
                   </div>
-                  <div className="modal_tracks" style={colors.gradient(data)}>
-                    <div className="column_title">
-                          <div className="column_title_wrapper_number">
-                            <span className="column_title_number">#</span>
+                  <div className="tracks" style={colors.gradient(data)}>
+                    <div className="column-title">
+                          <div className="wrapper-number">
+                            <span className="column-title__number">#</span>
                           </div>
-                          <span className="column_title_name">Título</span>
-                          <div className="column_title_wrapper_icon">
-                            <BiTimeFive className="icon column_title_icon" />
+                          <span className="column-title__name">Título</span>
+                          <div className="wrapper-icon">
+                            <BiTimeFive className="icon column-title__icon" />
                           </div>
                     </div> 
                     {
                       loadingModal ? (
                         <LoadingAnimation color={colors.selectColor(data)} />
                       ) : (
-                        <div className="tracks_list">
+                        <div className="tracks-list">
                           {
                             tracksInfo && tracksInfo.tracks.map((track) => (
                               <div key={`${track.trackNumber}-${track.name}`} className="track">
-                                <div className="track_number">
+                                <div className="track__number">
                                   <span>{track.trackNumber}</span>
                                 </div>
-                                <div className="track_name">
+                                <div className="track__name">
                                   <p>{track.name}</p>
                                 </div>
-                                <div className="track_duration">
+                                <div className="track__duration">
                                   <span>{track.duration}</span>
                                 </div>
                               </div>

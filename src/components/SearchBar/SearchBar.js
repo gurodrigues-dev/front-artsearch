@@ -8,10 +8,10 @@ import { useNavigate } from "react-router-dom";
 import { LoadingContext } from "../../context/LoadingContext";
 
 const SearchBar = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { setLoading } = useContext(LoadingContext);
 
-  const [artistName, setArtistName] = useState("")
+  const [artistName, setArtistName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,9 +21,9 @@ const SearchBar = () => {
   }
 
   return (
-    <form className="search_wrapper" onSubmit={(e) => handleSubmit(e)}>
+    <form className="search" onSubmit={(e) => handleSubmit(e)}>
       <input
-        className="search"
+        className="search__input"
         type="text"
         placeholder="Digite o nome de um artista"
         onChange={(e) => setArtistName(e.target.value)}

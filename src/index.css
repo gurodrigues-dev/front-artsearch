@@ -52,11 +52,11 @@ a {
   font-size: 2rem;
 }
 
-.icon_search {
+.icon-search {
   color: var(--dark-gray);
 }
 
-.wrapper_search_bar {
+.wrapper-search {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -68,7 +68,7 @@ a {
   transition: 0.5s;
 }
 
-.wrapper_search_bar:hover {
+.wrapper-search:hover {
   border: 1px solid var(--pink);
 }
 
